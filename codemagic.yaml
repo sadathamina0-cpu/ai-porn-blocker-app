@@ -1,0 +1,41 @@
+workflows:
+  android-debug-build:
+    name: Purity Lock Debug Build
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      groups:
+        - active_filters
+      vars:
+        PACKAGE_NAME: "com.aistudio.puritylock.fytkwp"
+      java: 17
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: '*'
+          include: true
+    scripts:
+      - name: Initialize local.properties
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+      - name: Generate Gradle Wrapper
+        script: |
+          if [ ! -f gradlew ]; then
+            echo "Gradle wrapper not found in source tree. Generating native wrapper..."
+            gradle wrapper --gradle-version 8.5
+          fi
+          chmod +x gradlew
+      - name: Build Android Debug APK
+        script: |
+          ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
+    publishing:
+      email:
+        recipients:
+          - sadathamina0@gmail.com
+        notify:
+          success: true
+          failure: true

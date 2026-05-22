@@ -50,6 +50,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        PurityAccessibilityService.isAppWindowActive = true
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
@@ -63,7 +64,18 @@ class MainActivity : ComponentActivity() {
 
     override fun onResume() {
         super.onResume()
+        PurityAccessibilityService.isAppWindowActive = true
         isServiceEnabledState.value = isAccessibilityServiceEnabled(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        PurityAccessibilityService.isAppWindowActive = false
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        PurityAccessibilityService.isAppWindowActive = false
     }
 
     private fun openAccessibilitySettings() {
