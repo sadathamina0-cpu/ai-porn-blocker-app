@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Purity Lock</string>
+    <string name="accessibility_service_label">Purity Lock Active Protection</string>
+    <string name="accessibility_service_description">Instantly and silently erases blocked words like porn, porno, sexvideo, or xxx as you type to maintain input purity across all apps.</string>
+</resources>

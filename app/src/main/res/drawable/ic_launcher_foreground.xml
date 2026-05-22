@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Outer Shield Line -->
+    <path
+        android:fillColor="#FF2EC4B6"
+        android:pathData="M54,22 L24,34 L24,56 C24,78 44,95 54,100 C64,95 84,78 84,56 L84,34 Z" />
+        
+    <!-- Inner Shield (Glow/Depth) -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,28 L30,38 L30,56 C30,73 46,88 54,93 C62,88 78,73 78,56 L78,38 Z" />
+
+    <!-- Active Shield Check -->
+    <path
+        android:fillColor="#FF2EC4B6"
+        android:pathData="M48,68 L36,56 L40,52 L48,60 L68,40 L72,44 Z" />
+        
+</vector>

@@ -1,0 +1,6 @@
+{
+  "name": "Purity Lock",
+  "description": "An instant, silent text filter that removes blocked words as you type anywhere on your phone using an accessibility service.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
